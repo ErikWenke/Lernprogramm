@@ -1,3 +1,9 @@
+---
+id: Beleg-Abgabeformat--1744650841
+aliases: []
+tags: []
+---
+
 # Abgabeformat
 * zum Abgabezeitpunkt müssen folgende Dinge erfüllt sein:
   * die Webanwendung liegt funktionsfähig auf dem HTW-Webserver 
