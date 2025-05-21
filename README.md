@@ -1,1 +1,41 @@
 # Lernprogramm
+
+## Checklist
+
+- [ ] call it done when
+  - [ ] 4 possible answers
+  - [ ] statistics after each run (like [10fastfingers](https://10fastfingers.com/typing-test/german))
+  - [ ] progress bar for showing learn progress
+  - [ ] update after each question/answer
+  - [ ] multiple categories
+    - [ ] computer networking
+    - [ ] math -> render with [KaTeX](https://github.com/KaTeX/KaTeX)
+    - [ ] nodes -> render with JS-Library [Vexflow](https://github.com/0xfe/vexflow) / EasyScore
+      - [ ] use virtual piano-keyboard for input
+      - [ ] output via Web Audio API (with JS-Library)
+  - [ ] random
+    - [ ] selection of questions
+    - [ ] order of answers (position of the right one)
+    - [ ] assignment should run on the web server HTW-Dresden under /~s86221/Lernprogramm
+    - [ ] runs on the current firefox version
+    - [ ] progressive web application
+    - [ ] one category gets questions from external server with Ajax and REST-API
+      - [ ] use [Web-Quiz](https://github.com/swsms/web-quiz-engine) (already hosted on "Informatik Server" + questions)
+      - [ ] create additional questions
+      - [ ] README
+        - [ ] roadmap / features (more feature which are not required by the assignment)
+          - [ ] more than done feature
+            - weigh questions based on answers
+            - multi select questions
+            - multi user access with authentication
+        - [ ] problems
+        - [ ] browser
+- [ ] deliverable on **2025-06-08** when ...
+  - [ ] application is functional on the HTW web server
+  - [ ] assignment is located in github repository s86221 under HTWDD-RN
+  - [ ] send current state of the repository as ZIP (s86221.zip) over E-Mail to paul@informatik.htw-dresden.de
+    - name
+    - first name
+    - s86221
+    - studi-ID (or whatever it is called)
+    - web link
