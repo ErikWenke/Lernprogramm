@@ -1,0 +1,12 @@
+{
+  "allgemein": [
+    {"a":"If you are lonely when you're alone, you are in bad company.",
+      "l":["Jean-Paul Sartre","Ayn Rand","Marcus Aurelius","Henry David Thoreau"]},
+    {"a":"We live in the best of all possible worlds",
+      "l":["Gottfried Wilhelm Leibniz","Lao Tzu","Ralph Waldo Emerson","Marcus Aurelius"]},
+    {"a":"Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has.",
+      "l":["Margaret Mead","Aristotle","Stephen Hawking"," Isaac Asimov"]},
+    {"a":"I would never die for my beliefs because I might be wrong",
+      "l":["Bertrand Russell","Albert Einstein","Henri Frederic Amiel","Abraham Joshua Heschel"]}
+  ]
+ }
