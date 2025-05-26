@@ -6,35 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/default.css" rel="stylesheet" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <script src="js/user_interface.js" type="text/javascript" defer></script>
+    <script src="js/user_interface.js" type="module"></script>
     <!-- <meta name="ROBOTS" content="INDEX, FOLLOW"/> search engine & indexing (maybe in the future)-->
     <noscript>
       JavaScript is currently disable. The webside might not work properly.
     </noscript>
   </head>
   <body>
-    <header>
-      <h1 class="heading">Subject</h1>
-    </header>
+    <header>Header</header>
     <div id="prac_area">
       <nav>
         <h2 class="heading">Navigation</h2>
-        <ul></ul>
-      </nav>
-      <main>
-        <div id="question">
-          Wer sagte: Denn von mir selbst wusste ich, dass ich gar nichts weiß
-          ...
-        </div>
-        <div id="answer_button">
-          <button type="button" id="button_a">A</button>
-          <button type="button" id="button_b">B</button>
-          <button type="button" id="button_c">C</button>
-          <button type="button" id="button_d">D</button>
-        </div>
-      </main>
-      <aside>
-        <h2 class="heading">Categories</h2>
         <ul>
           <li>
             <input name="kategorie" type="radio" id="quotes" />
@@ -49,10 +31,22 @@
             <label for="noten">Noten</label>
           </li>
         </ul>
+      </nav>
+      <main>
+        <div id="question">Question</div>
+        <div id="answer_button">
+          <button type="button" id="button_a">A</button>
+          <button type="button" id="button_b">B</button>
+          <button type="button" id="button_c">C</button>
+          <button type="button" id="button_d">D</button>
+        </div>
+      </main>
+      <aside>
+        <h2 class="heading">Statistics</h2>
+        <progress id="stat_bar" value="0" max="0"></progress>
+        <p id="wrong">0</p>
       </aside>
     </div>
-    <footer>
-      Denn von mir selbst wusste ich, dass ich gar nichts weiß ...
-    </footer>
+    <footer>Footer</footer>
   </body>
 </html>

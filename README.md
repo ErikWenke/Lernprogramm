@@ -3,10 +3,10 @@
 ## Checklist
 
 - [ ] call it done when
-  - [ ] 4 possible answers
-  - [ ] statistics after each run (like [10fastfingers](https://10fastfingers.com/typing-test/german))
-  - [ ] progress bar for showing learn progress
-  - [ ] update after each question/answer
+  - [x] 4 possible answers
+  - [x] statistics after each run (like [10fastfingers](https://10fastfingers.com/typing-test/german))
+  - [x] progress bar for showing learn progress
+  - [x] update after each question/answer
   - [ ] multiple categories
     - [ ] computer networking
     - [ ] math -> render with [KaTeX](https://github.com/KaTeX/KaTeX)
@@ -15,7 +15,7 @@
       - [ ] output via Web Audio API (with JS-Library)
   - [ ] random
     - [ ] selection of questions
-    - [ ] order of answers (position of the right one)
+    - [x] order of answers (position of the right one)
     - [ ] assignment should run on the web server HTW-Dresden under /~s86221/Lernprogramm
     - [ ] runs on the current firefox version
     - [ ] progressive web application

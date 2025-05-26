@@ -1,92 +1,30 @@
 :root {
   /* Dark Kanagawa Palette inspired by https://github.com/rebelot/kanagawa.nvim*/
   --dark-bg: #181820;
-  --link: #658594;
-  --medium-bg: #1f1f28;
   --dim-bg: #2a2a37;
+  --medium-bg: #1f1f28;
   --light-bg: #363636;
+  --link: #658594;
   --text: #dcd7ba;
   --border: #7e7e7e;
-
-  --sumiInk0: #16161d;
-  --sumiInk1b: #181820;
-  --sumiInk1: #1f1f28;
-  --sumiInk2: #2a2a37;
-  --sumiInk3: #363646;
-  --sumiInk4: #54546d;
-  --waveBlue1: #223249;
-  --waveBlue2: #2d4f67;
-  --winterGreen: #2b3328;
-  --winterYellow: #49443c;
-  --winterRed: #43242b;
-  --winterBlue: #252535;
-  --autumnGreen: #76946a;
-  --autumnRed: #c34043;
-  --autumnYellow: #dca561;
-  --samuraiRed: #e82424;
-  --roninYellow: #ff9e3b;
-  --waveAqua1: #6a9589;
-  --dragonBlue: #658594;
-  --oldWhite: #c8c093;
-  --fujiWhite: #dcd7ba;
-  --fujiGray: #727169;
-  --springViolet1: #938aa9;
-  --oniViolet: #957fb8;
-  --crystalBlue: #7e9cd8;
-  --springViolet2: #9cabca;
-  --springBlue: #7fb4ca;
-  --lightBlue: #a3d4d5;
-  --waveAqua2: #7aa89f;
-  --springGreen: #98bb6c;
-  --boatYellow1: #938056;
-  --boatYellow2: #c0a36e;
-  --carpYellow: #e6c384;
-  --sakuraPink: #d27e99;
-  --waveRed: #e46876;
-  --peachRed: #ff5d62;
-  --surimiOrange: #ffa066;
-  --katanaGray: #717c7c;
-  --dark0-hard: #1d2021;
-  --dark0: #282828;
-  --dark0-soft: #32302f;
-  --dark1: #3c3836;
-  --dark2: #504945;
-  --dark3: #665c54;
-  --dark4: #7c6f64;
-  --gray: #928374;
-  --light0-hard: #f9f5d7;
-  --light0: #fbf1c7;
-  --light0-soft: #f2e5bc;
-  --light1: #ebdbb2;
-  --light2: #d5c4a1;
-  --light3: #bdae93;
-  --light4: #a89984;
-  --bright-red: #fb4934;
-  --bright-green: #b8bb26;
-  --bright-yellow: #fabd2f;
-  --bright-blue: #83a598;
-  --bright-purple: #d3869b;
-  --bright-aqua: #8ec07c;
-  --bright-orange: #fe8019;
-  --neutral-red: #cc241d;
-  --neutral-green: #98971a;
-  --neutral-yellow: #d79921;
-  --neutral-blue: #458588;
-  --neutral-purple: #b16286;
-  --neutral-aqua: #689d6a;
-  --neutral-orange: #d65d0e;
-  --faded-red: #9d0006;
-  --faded-green: #79740e;
-  --faded-yellow: #b57614;
-  --faded-blue: #076678;
-  --faded-purple: #8f3f71;
-  --faded-aqua: #427b58;
-  --faded-orange: #af3a03;
 }
 
-/* default text color */
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 * {
   color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--dim-bg);
 }
 
 /* borders */
@@ -99,10 +37,6 @@ main {
   border-radius: 0.2rem;
 }
 
-/* background colors */
-body {
-  background: var(--dim-bg);
-}
 nav,
 aside {
   background: var(--dark-bg);
@@ -146,6 +80,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  height: 80%;
 }
 
 #prac_area > * {
@@ -162,34 +97,43 @@ a {
 #answer_button > * {
   flex-grow: 1;
   height: 100%;
+  width: 25%;
+  background: var(--dim-bg);
+  border: thin solid var(--border);
 }
 
 #question {
   height: 80%;
+  text-align: center;
 }
 /* phones */
 @media (max-width: 600px) {
   #prac_area {
     flex-direction: column;
   }
+
   h1 {
-    margin: 0.1rem;
+    padding: 0;
   }
+
   #prac_area .heading {
     margin: 0.2rem;
   }
+
   #prac_area ul {
     margin: 0.2rem;
   }
+
   #prac_area nav {
     order: 3;
   }
+
   #prac_area aside {
     order: 2;
   }
+
   #prac_area main {
     order: 1;
-    height: 125vw;
   }
 }
 
@@ -197,13 +141,20 @@ a {
 @media (min-width: 601px) {
   #prac_area {
     flex-direction: row;
+    height: 90%;
   }
+
+  #prac_area main {
+    width: 70%;
+  }
+
+  footer,
+  header {
+    height: 5%;
+  }
+
   nav,
   aside {
-    min-width: 10rem;
-    max-width: 20%;
-  }
-  #prac_area main {
-    height: 125vw;
+    width: 15%;
   }
 }
