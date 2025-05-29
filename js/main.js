@@ -4,7 +4,12 @@ import { Model } from "./model.js";
 import { View } from "./view.js";
 import { Presenter } from "./presenter.js";
 
-// Create User Interface
+// register service worker
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js");
+}
+// create user interface
 let v = new View();
 let m = new Model();
 let p = new Presenter();
