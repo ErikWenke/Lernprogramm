@@ -1,0 +1,26 @@
+{
+  "quotes":[
+    {"a":"If you are lonely when you are alone, you are in bad company.", "l": ["Jean-Paul Sartre","Ayn Rand","Marcus Aurelius","Henry David Thoreau"]},
+    {"a":"We live in the best of all possible worlds.", "l": ["Gottfried Wilhelm Leibniz","Lao Tzu","Ralph Waldo Emerson","Marcus Aurelius"]},
+    {"a":"Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has.", "l": ["Margaret Mead","Aristotle","Stephen Hawking"," Isaac Asimov"]},
+    {"a":"I would never die for my beliefs because I might be wrong.", "l": ["Bertrand Russell","Albert Einstein","Henri Frederic Amiel","Abraham Joshua Heschel"]},
+    {"a":"Knauserig sind sie, wenn es gilt, das ererbte Vermögen zusammenzuhalten, steht aber die Zeit auf dem Spiel, dann sind sie die größten Verschwender bei dem, worin doch einzig und allein Geiz eine Tugend wäre.", "l": ["Seneca","Albert Einstein","Stephen Hawking","Abraham Joshua Heschel"]},
+    {"a":"The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.", "l": ["Albert Camus","Ayn Rand","Jean-Paul Sartre","Ralph Waldo Emerson"]},
+    {"a":"Happiness is like a butterfly; the more you chase it, the more it will elude you, but if you turn your attention to other things, it will come and sit softly on your shoulder.", "l": ["Henry David Thoreau","Aristotle","Lao Tzu","Gottfried Wilhelm Leibniz"]},
+    {"a":"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.", "l": ["Marcus Aurelius","Ramana Maharshi","Margaret Mead","Aristotle"]},
+    {"a":"Those who educate children well are more to be honored than they who produce them; for these only gave them life, those the art of living well.", "l": ["Aristotle","Plato","Ralph Waldo Emerson","John Locke"]},
+    {"a":"The only thing I know is that I know nothing.", "l": ["Socrates","Isaac Asimov","Marcus Aurelius","Epictetus"]}
+  ],
+  "mathe":[
+    {"a": "$x^2 + x^2$", "l": ["$$2x^2$$", "$$x^4$$", "$$x^8$$", "$$2x^4$$"]},
+    {"a": "$x^2 * x^2$","l": ["$$x^4$$", "$$x^2$$", "$$2x^2$$", "$$4x$$"]},
+    {"a": "$(a + b)^2$","l": ["$$a^2 + 2ab + b^2$$", "$$a^2 + b^2$$", "$$2a + 2b$$", "$$a^2 - 2ab + b^2$$"]},
+    {"a": "$x^3 / x$","l": ["$$x^2$$", "$$x^3$$", "$$1$$", "$$x$$"]},
+    {"a": "$(x^2)^3$","l": ["$$x^6$$", "$$x^5$$", "$$x^9$$", "$$x^8$$"]},
+    {"a": "$√(x^2)$","l": ["$$|x|$$", "$$x$$", "$$x^2$$", "$$1$$"]},
+    {"a": "$2x * 3x^2$","l": ["$$6x^3$$", "$$5x^2$$", "$$6x^2$$", "$$6x$$"]},
+    {"a": "$(x + 1)(x - 1)$","l": ["$$x^2 - 1$$", "$$x^2 + 1$$", "$$x^2 - 2x + 1$$", "$$x^2 + 2x + 1$$"]},
+    {"a": "$d/dx(x^3)$", "l": ["$$3x^2$$", "$$x^2$$", "$$3x$$", "$$x^3$$"]},
+    {"a": "$∫x dx$","l": ["$$1/2 x^2 + C$$", "$$x^2 + C$$", "$$ln(x) + C$$", "$$x + C$$"]}
+  ]
+}

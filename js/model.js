@@ -4,7 +4,7 @@ import { getElementByIdPlus } from "./getElementByIdPlus.js";
 
 export class Model {
   constructor() {
-    this.quiz = null;
+    this.quiz = [];
     this.current_quest = 0;
     this.quiz_length = 1;
   }
@@ -15,53 +15,24 @@ export class Model {
 
   // TODO: load from Database on HTW Dresden
   //https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
-  get_quiz(i) {
-    let db;
-    switch(i) {
-      case "quotes":
-        if()
-    }
+  async get_quiz(i) {
     this.progess = 0;
-    this.quiz = [
-      {
-        a: "If you are lonely when you're alone, you are in bad company.",
-        l: [
-          "Jean-Paul Sartre",
-          "Ayn Rand",
-          "Marcus Aurelius",
-          "Henry David Thoreau",
-        ],
-      },
-      {
-        a: "We live in the best of all possible worlds",
-        l: [
-          "Gottfried Wilhelm Leibniz",
-          "Lao Tzu",
-          "Ralph Waldo Emerson",
-          "Marcus Aurelius",
-        ],
-      },
-      {
-        a: "Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has.",
-        l: ["Margaret Mead", "Aristotle", "Stephen Hawking", " Isaac Asimov"],
-      },
-      {
-        a: "I would never die for my beliefs because I might be wrong",
-        l: [
-          "Bertrand Russell",
-          "Albert Einstein",
-          "Henri Frederic Amiel",
-          "Abraham Joshua Heschel",
-        ],
-      },
-    ];
-    this.quiz_length = this.quiz.length;
     this.current_quest = 0;
-    let e = getElementByIdPlus("stat_bar");
-    e.max = this.quiz_length.toString();
-
-    // send first quest
-    this.p.next_quest(this.quiz[0]);
+    const response = await fetch("data/quizes.json");
+    const quizes = await response.json();
+    switch (i) {
+      case "mathe":
+      case "quotes":
+        this.quiz = quizes[i];
+        this.quiz_length = this.quiz.length;
+        let e = getElementByIdPlus("stat_bar");
+        e.max = this.quiz_length.toString();
+        this.p.next_quest(this.quiz[0]);
+        break;
+      default:
+        alert("This quiz is not implemented yet");
+        break;
+    }
   }
 
   get_quest() {

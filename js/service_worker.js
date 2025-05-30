@@ -1,3 +1,4 @@
+/*
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("quiz").then((cache) => {
@@ -5,3 +6,4 @@ self.addEventListener("install", (event) => {
     }),
   );
 });
+*/

@@ -22,6 +22,28 @@ export class View {
       const answer_button = getElementByIdPlus(id);
       answer_button.addEventListener("click", () => this.p.check_answer(id));
     });
+
+    // Auto Render Katex in Flash Cards
+    const quest = getElementByIdPlus("question");
+    const config = { subtree: true, characterData: true, childList: true };
+    const renderKatex = () => {
+      observer.disconnect();
+      ["button_a", "button_b", "button_c", "button_d", "question"].forEach(
+        (id) => {
+          const katexElement = getElementByIdPlus(id);
+          renderMathInElement(katexElement, {
+            delimiters: [
+              { left: "$$", right: "$$", display: true },
+              { left: "$", right: "$", display: true },
+            ],
+          });
+        },
+      );
+      observer.observe(quest, config);
+    };
+
+    const observer = new MutationObserver(renderKatex);
+    observer.observe(quest, config);
   }
 
   display_quest(quest) {
