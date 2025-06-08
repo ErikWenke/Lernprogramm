@@ -11,69 +11,64 @@ export class View {
   }
 
   setEventHandlers() {
-    // select category
-    ["quotes", "mathe", "noten"].forEach((id) => {
-      let category = getElementByIdPlus(id);
-      category.addEventListener("change", () => this.p.start_quiz(id));
+    const obsConf = { characterData: true };
+    const answer_buttons = ["button_a", "button_b", "button_c", "button_d"];
+    const quizes = ["quotes", "mathe", "noten"];
+    const question = getElementByIdPlus("question");
+
+    // select quiz
+    quizes.forEach((id) => {
+      var q = getElementByIdPlus(id);
+      q.addEventListener("change", () => this.p.start_quiz(id));
     });
 
     // click answer button
-    ["button_a", "button_b", "button_c", "button_d"].forEach((id) => {
-      const answer_button = getElementByIdPlus(id);
-      answer_button.addEventListener("click", () => this.p.check_answer(id));
+    answer_buttons.forEach((id) => {
+      var b = getElementByIdPlus(id);
+      b.addEventListener("click", () => this.p.check_answer(id));
     });
 
-    // Render Math with KaTeX
-    const quest = getElementByIdPlus("question");
-    const config = { subtree: true, characterData: true, childList: true }; // TODO: I only need to oberve the quest elem
+    // render math with KaTeX
     const katexOpt = {
       delimiters: [
         { left: "$$", right: "$$", display: true },
         { left: "$", right: "$", display: true },
       ],
     };
-    const render = () => {
-      observer.disconnect();
+    const render_math = () => {
+      mathObs.disconnect();
       ["button_a", "button_b", "button_c", "button_d", "question"].forEach(
         (id) => {
-          const elem = getElementByIdPlus(id);
-          renderMathInElement(elem, katexOpt);
+          renderMathInElement(getElementByIdPlus(id), katexOpt);
         },
       );
-      observer.observe(quest, config);
+      mathObs.observe(question, obsConf);
     };
-
-    const observer = new MutationObserver(render);
-    observer.observe(quest, config);
+    const mathObs = new MutationObserver(render_math);
+    mathObs.observe(question, obsConf);
 
     // render engraved music with EasyScore / VexFlow
-    const vexFlowObsConfig = {
-      // TODO: I only need to oberve the quest elem
-      subtree: true,
-      characterData: true,
-      childList: true,
-    };
     const vexFlowOpt = { renderer: { elementId: "question" } };
-    const renderMusic = () => {
+    const render_music = () => {
       vexFlowObs.disconnect();
       if (getElementByIdPlus("noten").checked) {
+        /*
         var vf = new Vex.Flow.Factory(vexFlowOpt);
         var score = vf.EasyScore();
         var system = vf.System();
-
         system
           .addStave({
-            voices: [score.notes(getElementByIdPlus("question").innerHTML)],
+            voices: [score.notes(question.innerHTML)],
           })
           .addClef("treble");
-
         vf.draw();
+        */
+        alert("Oberserver in Note");
       }
-      vexFlowObs.observe(getElementByIdPlus("question"), vexFlowObsConfig);
+      vexFlowObs.observe(question, obsConf);
     };
-    const vexFlowObs = new MutationObserver(renderMusic);
-
-    vexFlowObs.observe(getElementByIdPlus("question"), vexFlowObsConfig);
+    const vexFlowObs = new MutationObserver(render_music);
+    vexFlowObs.observe(question, obsConf);
   }
 
   display_quest(quest) {

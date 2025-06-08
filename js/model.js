@@ -18,10 +18,12 @@ export class Model {
   async get_quiz(i) {
     this.progess = 0;
     this.current_quest = 0;
-    const response = await fetch("data/quizes.json");
+    const response = await fetch(`data/quizes.json?nocache=${Date.now()}`); // INFO: nocache only for development
     const quizes = await response.json();
+    console.log("Available quizzes:", Object.keys(quizes));
     switch (i) {
       case "mathe":
+      case "noten":
       case "quotes":
         this.quiz = quizes[i];
         this.quiz_length = this.quiz.length;
