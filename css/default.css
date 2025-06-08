@@ -9,7 +9,7 @@
   --border: #7e7e7e;
 }
 
-/* TODO: this is my current fix for overflow of KaTeX rendering in question*/
+/* TODO: this is my current fix for a overflow problem when first select the math quiz*/
 * {
   overflow-y: hidden;
 }
@@ -107,8 +107,10 @@ a {
   border: thin solid var(--border);
 }
 
-#question {
+#question_wrapper {
   height: 80%;
+}
+#question {
   text-align: center;
 }
 /* phones */

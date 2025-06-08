@@ -24,10 +24,15 @@
     {"a": "$∫x dx$","l": ["$$1/2 x^2 + C$$", "$$x^2 + C$$", "$$ln(x) + C$$", "$$x + C$$"]}
   ],
   "noten":[
-    {"a": "C", "l": ["C","A","B","G"]},
-    {"a": "C", "l": ["C","A","B","G"]},
-    {"a": "C", "l": ["C","A","B","G"]},
-    {"a": "C", "l": ["C","A","B","G"]},
-    {"a": "C", "l": ["C","A","B","G"]}
+  {"a": "X:1\nT:Which note is this?\nM:4/4\nL:1/4\nK:C\nD","l": ["D", "E", "F", "C"]},
+  {"a": "X:1\nT:Identify the note\nM:4/4\nL:1/4\nK:C\nG","l": ["G", "A", "B", "E"]},
+  {"a": "X:1\nT:What note is played?\nM:4/4\nL:1/4\nK:C\nF","l": ["F", "D", "C", "G"]},
+  {"a": "X:1\nT:Name this note\nM:4/4\nL:1/4\nK:C\nA","l": ["A", "G", "B", "F"]},
+  {"a": "X:1\nT:Which note is shown?\nM:4/4\nL:1/4\nK:G\nB","l": ["B", "D", "G", "A"]},
+  {"a": "X:1\nT:Identify the pitch\nM:3/4\nL:1/4\nK:C\nE","l": ["E", "F", "G", "D"]},
+  {"a": "X:1\nT:Recognize the note\nM:2/4\nL:1/4\nK:F\nC","l": ["C", "D", "A", "B"]},
+  {"a": "X:1\nT:What's the note?\nM:4/4\nL:1/4\nK:C\nc","l": ["c", "d", "e", "b"]},
+  {"a": "X:1\nT:Select the correct note\nM:4/4\nL:1/4\nK:C\nG,","l": ["G,", "C", "A", "E"]},
+  {"a": "X:1\nT:Which note?\nM:4/4\nL:1/4\nK:C\nB", "l": ["B", "A", "C", "D"]}
   ]
 }

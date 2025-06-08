@@ -13,7 +13,8 @@
     <link href="css/default.css" rel="stylesheet" />
     <meta name="mobile-web-app-capable" content="yes" />
     <script src="js/main.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vexflow@5.0.0/build/cjs/vexflow-core.js"></script>
+    <!--- abcjs --->
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.2.3/dist/abcjs-basic-min.js"></script>
     <!-- KaTex -->
     <script
       defer
@@ -55,7 +56,9 @@
         </ul>
       </nav>
       <main id="flashcard">
-        <p id="question">Question</p>
+        <div id="question_wrapper">
+          <p id="question">Question</p>
+        </div>
         <div id="answer_button">
           <button type="button" id="button_a">A</button>
           <button type="button" id="button_b">B</button>

@@ -20,7 +20,6 @@ export class Model {
     this.current_quest = 0;
     const response = await fetch(`data/quizes.json?nocache=${Date.now()}`); // INFO: nocache only for development
     const quizes = await response.json();
-    console.log("Available quizzes:", Object.keys(quizes));
     switch (i) {
       case "mathe":
       case "noten":

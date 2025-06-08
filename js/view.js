@@ -11,7 +11,7 @@ export class View {
   }
 
   setEventHandlers() {
-    const obsConf = { characterData: true };
+    const obsConf = { characterData: true, childList: true, subtree: true };
     const answer_buttons = ["button_a", "button_b", "button_c", "button_d"];
     const quizes = ["quotes", "mathe", "noten"];
     const question = getElementByIdPlus("question");
@@ -28,47 +28,27 @@ export class View {
       b.addEventListener("click", () => this.p.check_answer(id));
     });
 
-    // render math with KaTeX
+    // render math and music
     const katexOpt = {
       delimiters: [
         { left: "$$", right: "$$", display: true },
         { left: "$", right: "$", display: true },
       ],
     };
-    const render_math = () => {
-      mathObs.disconnect();
+    const render = () => {
+      Obs.disconnect();
       ["button_a", "button_b", "button_c", "button_d", "question"].forEach(
         (id) => {
           renderMathInElement(getElementByIdPlus(id), katexOpt);
+          if (getElementByIdPlus("noten").checked && id === "question") {
+            ABCJS.renderAbc(question, question.innerHTML);
+          }
         },
       );
-      mathObs.observe(question, obsConf);
+      Obs.observe(question, obsConf);
     };
-    const mathObs = new MutationObserver(render_math);
-    mathObs.observe(question, obsConf);
-
-    // render engraved music with EasyScore / VexFlow
-    const vexFlowOpt = { renderer: { elementId: "question" } };
-    const render_music = () => {
-      vexFlowObs.disconnect();
-      if (getElementByIdPlus("noten").checked) {
-        /*
-        var vf = new Vex.Flow.Factory(vexFlowOpt);
-        var score = vf.EasyScore();
-        var system = vf.System();
-        system
-          .addStave({
-            voices: [score.notes(question.innerHTML)],
-          })
-          .addClef("treble");
-        vf.draw();
-        */
-        alert("Oberserver in Note");
-      }
-      vexFlowObs.observe(question, obsConf);
-    };
-    const vexFlowObs = new MutationObserver(render_music);
-    vexFlowObs.observe(question, obsConf);
+    const Obs = new MutationObserver(render);
+    Obs.observe(question, obsConf);
   }
 
   display_quest(quest) {
