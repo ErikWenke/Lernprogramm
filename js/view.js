@@ -1,6 +1,10 @@
 import { shuffle } from "./shuffle.js";
 import { getElementByIdPlus } from "./getElementByIdPlus.js";
 
+const question = getElementByIdPlus("question");
+const asw_buttons = ["button_a", "button_b", "button_c", "button_d"];
+const quizzes = ["quotes", "mathe", "noten", "bouldering"]; // TODO: automate thourgh parsing DOM
+
 export class View {
   constructor() {
     this.setEventHandlers();
@@ -11,24 +15,18 @@ export class View {
   }
 
   setEventHandlers() {
-    const obsConf = { characterData: true, childList: true, subtree: true };
-    const answer_buttons = ["button_a", "button_b", "button_c", "button_d"];
-    const quizes = ["quotes", "mathe", "noten"];
-    const question = getElementByIdPlus("question");
-
-    // select quiz
-    quizes.forEach((id) => {
+    // selected a quiz
+    quizzes.forEach((id) => {
       var q = getElementByIdPlus(id);
       q.addEventListener("change", () => this.p.start_quiz(id));
     });
-
-    // click answer button
-    answer_buttons.forEach((id) => {
+    // clicked answer button
+    asw_buttons.forEach((id) => {
       var b = getElementByIdPlus(id);
       b.addEventListener("click", () => this.p.check_answer(id));
     });
-
     // render math and music
+    const obsConf = { characterData: true, childList: true, subtree: true };
     const katexOpt = {
       delimiters: [
         { left: "$$", right: "$$", display: true },
@@ -51,31 +49,29 @@ export class View {
     Obs.observe(question, obsConf);
   }
 
-  display_quest(quest) {
-    // Question
-    let question = getElementByIdPlus("question");
-    question.innerHTML = quest.a;
-
-    // Answers
-    let display_order = shuffle([1, 2, 3, 4]);
-    ["button_a", "button_b", "button_c", "button_d"].forEach((id) => {
-      let button = getElementByIdPlus(id);
+  display_quest(q) {
+    const order = shuffle([1, 2, 3, 4]);
+    // display question
+    question.innerHTML = q.a;
+    // display answers
+    asw_buttons.forEach((id) => {
+      const b = getElementByIdPlus(id);
       switch (id) {
         case "button_a":
-          button.innerHTML = quest.l[0];
-          button.style.order = display_order[0];
+          b.innerHTML = q.l[0];
+          b.style.order = order[0];
           break;
         case "button_b":
-          button.innerHTML = quest.l[1];
-          button.style.order = display_order[1];
+          b.innerHTML = q.l[1];
+          b.style.order = order[1];
           break;
         case "button_c":
-          button.innerHTML = quest.l[2];
-          button.style.order = display_order[2];
+          b.innerHTML = q.l[2];
+          b.style.order = order[2];
           break;
         case "button_d":
-          button.innerHTML = quest.l[3];
-          button.style.order = display_order[3];
+          b.innerHTML = q.l[3];
+          b.style.order = order[3];
           break;
       }
     });
@@ -92,17 +88,16 @@ export class View {
   }
 
   reset_stat() {
-    let stat_bar = getElementByIdPlus("stat_bar");
-    stat_bar.value = "0";
-    stat_bar.max = "0";
-    let wrong = getElementByIdPlus("wrong");
-    wrong.innerHTML = "0";
+    const bar = getElementByIdPlus("stat_bar");
+    bar.value = "0";
+    bar.max = "0";
+    const w = getElementByIdPlus("wrong");
+    w.innerHTML = "0";
   }
 
   quiz_done() {
-    getElementByIdPlus("question").innerHTML =
-      "Nice, you have finished this quiz.";
-    ["button_a", "button_b", "button_c", "button_d"].forEach((id) => {
+    question.innerHTML = "Nice, you have finished this quiz.";
+    asw_buttons.forEach((id) => {
       getElementByIdPlus(id).innerHTML = "Try another quiz";
     });
   }

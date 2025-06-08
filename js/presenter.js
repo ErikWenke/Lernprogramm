@@ -1,3 +1,5 @@
+import { getElementByIdPlus } from "./getElementByIdPlus.js";
+
 export class Presenter {
   constructor() {}
 
@@ -15,12 +17,21 @@ export class Presenter {
     this.v.display_quest(i);
   }
 
-  check_answer(answer) {
-    if (answer === "button_a") {
-      this.v.update_stat(true);
-      this.m.get_quest();
+  check_answer(a) {
+    if (getElementByIdPlus("bouldering").checked) {
+      if (this.m.check_answer(a)) {
+        this.v.update_stat(true);
+        this.m.get_quest(true);
+      } else {
+        this.v.update_stat(false);
+      }
     } else {
-      this.v.update_stat(false);
+      if (a === "button_a") {
+        this.v.update_stat(true);
+        this.m.get_quest(false);
+      } else {
+        this.v.update_stat(false);
+      }
     }
   }
 
