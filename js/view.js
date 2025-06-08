@@ -23,27 +23,57 @@ export class View {
       answer_button.addEventListener("click", () => this.p.check_answer(id));
     });
 
-    // Auto Render Katex in Flash Cards
+    // Render Math with KaTeX
     const quest = getElementByIdPlus("question");
-    const config = { subtree: true, characterData: true, childList: true };
-    const renderKatex = () => {
+    const config = { subtree: true, characterData: true, childList: true }; // TODO: I only need to oberve the quest elem
+    const katexOpt = {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: true },
+      ],
+    };
+    const render = () => {
       observer.disconnect();
       ["button_a", "button_b", "button_c", "button_d", "question"].forEach(
         (id) => {
-          const katexElement = getElementByIdPlus(id);
-          renderMathInElement(katexElement, {
-            delimiters: [
-              { left: "$$", right: "$$", display: true },
-              { left: "$", right: "$", display: true },
-            ],
-          });
+          const elem = getElementByIdPlus(id);
+          renderMathInElement(elem, katexOpt);
         },
       );
       observer.observe(quest, config);
     };
 
-    const observer = new MutationObserver(renderKatex);
+    const observer = new MutationObserver(render);
     observer.observe(quest, config);
+
+    // render engraved music with EasyScore / VexFlow
+    const vexFlowObsConfig = {
+      // TODO: I only need to oberve the quest elem
+      subtree: true,
+      characterData: true,
+      childList: true,
+    };
+    const vexFlowOpt = { renderer: { elementId: "question" } };
+    const renderMusic = () => {
+      vexFlowObs.disconnect();
+      if (getElementByIdPlus("noten").checked) {
+        var vf = new Vex.Flow.Factory(vexFlowOpt);
+        var score = vf.EasyScore();
+        var system = vf.System();
+
+        system
+          .addStave({
+            voices: [score.notes(getElementByIdPlus("question").innerHTML)],
+          })
+          .addClef("treble");
+
+        vf.draw();
+      }
+      vexFlowObs.observe(getElementByIdPlus("question"), vexFlowObsConfig);
+    };
+    const vexFlowObs = new MutationObserver(renderMusic);
+
+    vexFlowObs.observe(getElementByIdPlus("question"), vexFlowObsConfig);
   }
 
   display_quest(quest) {

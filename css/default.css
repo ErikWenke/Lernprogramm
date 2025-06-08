@@ -9,6 +9,11 @@
   --border: #7e7e7e;
 }
 
+/* TODO: this is my current fix for overflow of KaTeX rendering in question*/
+* {
+  overflow-y: hidden;
+}
+
 button:focus {
   outline: none;
   box-shadow: none;
